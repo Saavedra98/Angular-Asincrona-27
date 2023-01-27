@@ -10,6 +10,7 @@ import swal from'sweetalert2';
 export class AppComponent {
   title = 'asincrona-27';
 
+  mensaje!:string;
 
   formulario = new FormGroup({
     usuarioControl: new FormControl('', [Validators.required, Validators.minLength(5)] ),
@@ -19,6 +20,9 @@ export class AppComponent {
 
   login(){
     if(this.formulario.valid){
+
+      this.mensaje ="Login correcto";
+
       swal.fire({
         icon: 'success',
         title: 'Ingreso Correctamente',
@@ -26,6 +30,9 @@ export class AppComponent {
 
       })
     }else{
+
+      this.mensaje ="Login error";
+
       swal.fire({
         icon: 'error',
         title: 'Error al ingresar',
